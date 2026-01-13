@@ -113,8 +113,7 @@
           </div>
           <div style="display:flex;gap:10px;align-items:center">
             <button class="btn" id="loginBtn">Login</button>
-            <div class="muted">Use username:  
-              password: </div>
+            <div class="muted">Use username: <strong>A2026</strong> password: <strong>BITCAGS2026</strong></div>
           </div>
         </div>
 
@@ -287,9 +286,7 @@ const progressBar = document.getElementById('progressBar');
 let paletteEl, qViewEl, navPrevBtn, navNextBtn, markBtn;
 
 // Single allowed user from before
-const ALLOWED_USER = {name: "Asma'u Ibrahim", username: 'B2026', password: 'BITCAGS2026'},
-  {name: "Aliyu Bashir Lawan", username: 'A2026', password: 'BITCAGS2026'}
-  ;
+const ALLOWED_USER = {name: "Asma'u Ibrahim", username: 'B2026', password: 'BITCAGS2026'};
 
 // Login handler with one-attempt lock check
 loginBtn.addEventListener('click', ()=>{
@@ -298,7 +295,8 @@ loginBtn.addEventListener('click', ()=>{
   if(u === ALLOWED_USER.username && p === ALLOWED_USER.password){
     if(hasAttempt(u)){
       const saved = JSON.parse(localStorage.getItem(`bitcags_attempt_${u}`));
-      alert('You have already attempted this exam. You cannot retake it.\nScore: ' + saved.correct + '/' + saved.total + ' ('+saved.percent+'%)');
+      alert('You have already attempted this exam. You cannot retake it.
+Score: ' + saved.correct + '/' + saved.total + ' ('+saved.percent+'%)');
       // show minimal info
       studentNameDisplay.innerText = ALLOWED_USER.name;
       studentUsername.innerText = ALLOWED_USER.username;
